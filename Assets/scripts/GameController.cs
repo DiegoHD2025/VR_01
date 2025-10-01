@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameController : MonoBehaviour {
 
 	public Player player;
 	public Ball ball;
-	public TextMesh scoreText;
+	public TextMeshProUGUI scoreText;
 
 	private float gameOverTimer = 3f;
 
