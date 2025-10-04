@@ -15,7 +15,7 @@ public class Ball : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
@@ -48,6 +48,7 @@ public class Ball : MonoBehaviour {
 			speed += speedIncrement;
 
 			score++;
-		}
+            PlayerPrefs.SetInt("scoreHigh", score);
+        }
 	}
 }

@@ -711,7 +711,6 @@ GameObject:
   m_Component:
   - component: {fileID: 907292808}
   - component: {fileID: 907292810}
-  - component: {fileID: 907292811}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -752,19 +751,6 @@ MonoBehaviour:
   verticalSpeed: 0.5
   rotationX: 0
   rotationY: 0
---- !u!114 &907292811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907292807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 327ee9ff58b65b74b8bce854bac481cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballProximity: 3
 --- !u!1 &931986186 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 68e6be70dbeeb1d4f8d9f871ca61542d, type: 3}
@@ -929,6 +915,7 @@ GameObject:
   - component: {fileID: 959308589}
   - component: {fileID: 959308594}
   - component: {fileID: 959308595}
+  - component: {fileID: 959308596}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1121,6 +1108,20 @@ MonoBehaviour:
   maxDistancePointer: 1.5
   distPointerObject: 0.856
   hitPoint: {x: 0, y: 0, z: 0}
+--- !u!114 &959308596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959308587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327ee9ff58b65b74b8bce854bac481cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballProximity: 3
+  animator: {fileID: 1935769522}
 --- !u!1 &1023894672 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: 68e6be70dbeeb1d4f8d9f871ca61542d, type: 3}
@@ -1361,7 +1362,11 @@ PrefabInstance:
     - target: {fileID: 3778963093949852167, guid: 1c021270ff075f14390f73761b9d2b5e, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 907292811}
+      objectReference: {fileID: 959308596}
+    - target: {fileID: 3778963093949852167, guid: 1c021270ff075f14390f73761b9d2b5e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1935769522}
     - target: {fileID: 3778963093949852167, guid: 1c021270ff075f14390f73761b9d2b5e, type: 3}
       propertyPath: speedIncrement
       value: 1
@@ -1686,7 +1691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b709bfcfd994db291f334e374432f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 907292811}
+  player: {fileID: 959308596}
   ball: {fileID: 1911868469}
   scoreText: {fileID: 12327692}
 --- !u!4 &1559227694
@@ -1742,7 +1747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68e6be70dbeeb1d4f8d9f871ca61542d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.14
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68e6be70dbeeb1d4f8d9f871ca61542d, type: 3}
       propertyPath: m_LocalPosition.z
