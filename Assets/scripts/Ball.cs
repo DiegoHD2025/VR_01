@@ -48,6 +48,7 @@ public class Ball : MonoBehaviour {
 			speed += speedIncrement;
 
 			score++;
+            PlayerPrefs.GetInt("scoreHigh") < ;
             PlayerPrefs.SetInt("scoreHigh", score);
         }
 	}
