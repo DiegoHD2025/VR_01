@@ -29,6 +29,9 @@ public class UIElementXR : MonoBehaviour
 
         PointerEventData pointerEvent = PlacePointer();
         ExecuteEvents.Execute(this.gameObject, pointerEvent, ExecuteEvents.pointerDownHandler);
+
+        // Dispara el clic después de 1.5 segundos si no lo manejas en otro lado
+        Invoke("OnPointerClicXR", 1.5f);
     }
 
     public void OnPointerExitXR()
