@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 public class GameController : MonoBehaviour {
 
@@ -28,6 +29,8 @@ public class GameController : MonoBehaviour {
 			gameOverTimer -= Time.deltaTime;
 			if (gameOverTimer <= 0f) {
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 using System.Collections;
@@ -61,6 +64,9 @@ public class GameController : MonoBehaviour {
 			resetTimer -= Time.deltaTime;
 			if (resetTimer <= 0f) {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -70,7 +76,10 @@ public class GameController : MonoBehaviour {
 	}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -118,6 +127,9 @@ public class GameController : MonoBehaviour {
 		player.canPick = true;
 	}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

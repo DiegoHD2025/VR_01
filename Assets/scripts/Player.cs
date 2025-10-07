@@ -5,8 +5,11 @@ public class Player : MonoBehaviour {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	public float ballProximity = 4f;
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 	public bool canPick = false;
@@ -14,6 +17,9 @@ public class Player : MonoBehaviour {
 	public bool picked = false;
 	public bool won = false;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -26,6 +32,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (canPick == true) {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
 			if (/*GvrViewer.Instance.Triggered ||*/ Input.GetKeyDown ("space")) {
@@ -51,6 +58,24 @@ public class Player : MonoBehaviour {
 				if (ball.transform.position.z - transform.position.z < ballProximity && ball.direction.z < 0) {
 					ball.OnPlayerHit ();
 =======
+>>>>>>> Stashed changes
+=======
+
+			if (/*GvrViewer.Instance.Triggered ||*/ Input.GetKeyDown ("space")) {
+				RaycastHit hit;
+
+				if (Physics.Raycast(transform.position, transform.forward, out hit)) {
+
+					Cup cup = hit.transform.GetComponent<Cup> ();
+					if (cup != null) {
+						canPick = false;
+
+						picked = true;
+						won = (cup.ball != null);
+
+						cup.MoveUp ();
+					}
+
 >>>>>>> Stashed changes
 =======
 
