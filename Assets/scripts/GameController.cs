@@ -1,49 +1,91 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Collections;
 using TMPro;
+using System.Collections;
 
 public class GameController : MonoBehaviour
 {
     public TextMeshProUGUI infoText;
+    public TextMeshProUGUI correctText;
+    public TextMeshProUGUI incorrectText;
+
     public GameObject ball;
     public Player player;
     public Cup[] cups;
 
     private float resetTimer = 3f;
+    private int correctCount = 0;
+    private int incorrectCount = 0;
+    private bool roundCounted = false;
 
     void Start()
     {
+        roundCounted = false;
         infoText.text = "¡Elige la copa correcta!";
+        UpdateScoreUI();
         StartCoroutine(ShuffleRoutine());
     }
 
     void Update()
     {
-        if (player.picked)
+        if (player.picked && !roundCounted)
         {
+            roundCounted = true;
+
             if (player.won)
             {
+                correctCount++;
                 infoText.text = "¡Ganaste!";
             }
             else
             {
+                incorrectCount++;
                 infoText.text = "Perdiste :( ¡Intenta de nuevo!";
             }
 
+            UpdateScoreUI();
+        }
+
+        if (player.picked)
+        {
             resetTimer -= Time.deltaTime;
             if (resetTimer <= 0f)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                ResetRound();
             }
         }
+    }
+
+    private void UpdateScoreUI()
+    {
+        correctText.text = "Aciertos: " + correctCount;
+        incorrectText.text = "Fallos: " + incorrectCount;
+    }
+
+    private void ResetRound()
+    {
+        // Reset variables
+        player.picked = false;
+        player.canPick = false;
+        player.won = false;
+
+        resetTimer = 3f;
+        roundCounted = false;
+
+        // Quitar bola de todas las copas
+        foreach (Cup cup in cups)
+        {
+            cup.ball = null;
+        }
+
+        // Iniciar nueva ronda
+        infoText.text = "¡Elige la copa correcta!";
+        StartCoroutine(ShuffleRoutine());
     }
 
     private IEnumerator ShuffleRoutine()
     {
         yield return new WaitForSeconds(1f);
 
-        // Levanta todas las copas
         foreach (Cup cup in cups)
         {
             cup.MoveUp();
@@ -51,7 +93,6 @@ public class GameController : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        // Escoge una copa al azar para esconder la bola
         Cup targetCup = cups[Random.Range(0, cups.Length)];
         targetCup.ball = ball;
         ball.transform.position = new Vector3(
@@ -62,7 +103,6 @@ public class GameController : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
 
-        // Baja todas las copas
         foreach (Cup cup in cups)
         {
             cup.MoveDown();
@@ -70,7 +110,6 @@ public class GameController : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
 
-        // Mezcla las copas 5 veces
         for (int i = 0; i < 5; i++)
         {
             Cup cup1 = cups[Random.Range(0, cups.Length)];
@@ -88,7 +127,6 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(0.75f);
         }
 
-        // El jugador ahora puede elegir una copa
         player.canPick = true;
     }
 }
