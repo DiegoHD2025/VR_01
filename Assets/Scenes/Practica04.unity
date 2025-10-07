@@ -777,7 +777,10 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f0432d3a9594db438d41ca88128c4a1, type: 3}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &376266586
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,6 +864,9 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376266586}
   m_Mesh: {fileID: 8955675544086508923, guid: ce50c32a4312d70489d092a376fadc5a, type: 3}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &389255504
 GameObject:
@@ -957,7 +963,10 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &688986868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,6 +1050,9 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688986868}
   m_Mesh: {fileID: -3115652208852999647, guid: ce50c32a4312d70489d092a376fadc5a, type: 3}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &732550888
 GameObject:
@@ -1419,7 +1431,10 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &901098660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1518,9 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901098660}
   m_Mesh: {fileID: 3439545767271335713, guid: ce50c32a4312d70489d092a376fadc5a, type: 3}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &907292807
 GameObject:
@@ -1925,7 +1943,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballProximity: 3
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   animator: {fileID: 1935769522}
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &1023894672 stripped
@@ -1955,7 +1976,10 @@ BoxCollider:
   m_Size: {x: 0.024972, y: 0.024971996, z: 0.16181234}
   m_Center: {x: 0, y: 0, z: 0.08090612}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &1106948458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,6 +2063,9 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106948458}
   m_Mesh: {fileID: 2534964839176971238, guid: ce50c32a4312d70489d092a376fadc5a, type: 3}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &1199920616
 GameObject:
@@ -2084,12 +2111,15 @@ Transform:
   m_PrefabInstance: {fileID: 269112700}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!4 &1229233728 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ce50c32a4312d70489d092a376fadc5a, type: 3}
   m_PrefabInstance: {fileID: 141180043}
   m_PrefabAsset: {fileID: 0}
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!4 &1229233728
 Transform:
   m_ObjectHideFlags: 0
@@ -2109,6 +2139,9 @@ Transform:
   - {fileID: 688986869}
   m_Father: {fileID: 1293173328}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!4 &1293173328 stripped
 Transform:
@@ -2712,7 +2745,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 1530684140}
   m_CullTransparentMesh: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &1542810975
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,6 +2767,9 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &1559227692
 GameObject:
@@ -2764,9 +2803,13 @@ MonoBehaviour:
   player: {fileID: 959308596}
   ball: {fileID: 1911868469}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   scoreText: {fileID: 12327692}
   highscoreText: {fileID: 839766908}
   gameOverCanvas: {fileID: 115894298}
+=======
+  scoreText: {fileID: 0}
+>>>>>>> Stashed changes
 =======
   scoreText: {fileID: 0}
 >>>>>>> Stashed changes
@@ -2786,7 +2829,10 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &1620952347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,6 +2917,9 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620952347}
   m_Mesh: {fileID: 4300000, guid: dc74b7efcc13e36498a8b8847da83de7, type: 3}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &1666035825
 GameObject:
@@ -3178,6 +3227,7 @@ BoxCollider:
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!114 &1911868469 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3778963093949852167, guid: 1c021270ff075f14390f73761b9d2b5e, type: 3}
@@ -3185,6 +3235,8 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!114 &1911868469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3192,6 +3244,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1421130403}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542810975}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3199,12 +3254,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1935769519 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ce50c32a4312d70489d092a376fadc5a, type: 3}
   m_PrefabInstance: {fileID: 141180043}
   m_PrefabAsset: {fileID: 0}
 =======
+=======
+>>>>>>> Stashed changes
   player: {fileID: 959308596}
   speed: 2.5
   speedIncrement: 1
@@ -3269,6 +3327,9 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!114 &1935769520
 MonoBehaviour:
@@ -3283,6 +3344,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+  animator: {fileID: 0}
+>>>>>>> Stashed changes
 =======
   animator: {fileID: 0}
 >>>>>>> Stashed changes
