@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 public class GameController : MonoBehaviour {
 
@@ -27,6 +28,8 @@ public class GameController : MonoBehaviour {
 			gameOverTimer -= Time.deltaTime;
 			if (gameOverTimer <= 0f) {
 =======
+=======
+>>>>>>> Stashed changes
 using System.Collections;
 using TMPro;
 
@@ -57,13 +60,19 @@ public class GameController : MonoBehaviour {
 
 			resetTimer -= Time.deltaTime;
 			if (resetTimer <= 0f) {
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 				SceneManager.LoadScene (SceneManager.GetActiveScene().name);
 			}
 		}
 	}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 
 	private IEnumerator ShuffleRoutine () {
 		yield return new WaitForSeconds (1f);
@@ -108,5 +117,8 @@ public class GameController : MonoBehaviour {
 
 		player.canPick = true;
 	}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
