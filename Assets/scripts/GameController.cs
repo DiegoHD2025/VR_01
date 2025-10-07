@@ -1,136 +1,94 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
-public class GameController : MonoBehaviour {
-
-	public Player player;
-	public Ball ball;
-	public TextMesh scoreText;
-
-	private float gameOverTimer = 3f;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		bool isGameOver = ball.transform.position.z < player.transform.position.z;
-
-		if (isGameOver == false) {
-			scoreText.text = "Score: " + ball.score;
-		} else {
-			scoreText.text = "Game over!\nYour final score: " + ball.score;
-
-			gameOverTimer -= Time.deltaTime;
-			if (gameOverTimer <= 0f) {
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 using System.Collections;
 using TMPro;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
+    public TextMeshProUGUI infoText;
+    public GameObject ball;
+    public Player player;
+    public Cup[] cups;
 
-	public TextMeshProUGUI infoText;
-	public GameObject ball;
-	public Player player;
-	public Cup[] cups;
+    private float resetTimer = 3f;
 
-	private float resetTimer = 3f;
+    void Start()
+    {
+        infoText.text = "¡Elige la copa correcta!";
+        StartCoroutine(ShuffleRoutine());
+    }
 
-	// Use this for initialization
-	void Start () {
-		infoText.text = "¡Elige la copa correcta!";
+    void Update()
+    {
+        if (player.picked)
+        {
+            if (player.won)
+            {
+                infoText.text = "¡Ganaste!";
+            }
+            else
+            {
+                infoText.text = "Perdiste :( ¡Intenta de nuevo!";
+            }
 
-		StartCoroutine (ShuffleRoutine());
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (player.picked) {
-			if (player.won) {
-				infoText.text = "Ganaste!";
-			} else {
-				infoText.text = "Perdiste :( Intenta de nuevo!";
-			}
+            resetTimer -= Time.deltaTime;
+            if (resetTimer <= 0f)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
+    }
 
-			resetTimer -= Time.deltaTime;
-			if (resetTimer <= 0f) {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-				SceneManager.LoadScene (SceneManager.GetActiveScene().name);
-			}
-		}
-	}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+    private IEnumerator ShuffleRoutine()
+    {
+        yield return new WaitForSeconds(1f);
 
-	private IEnumerator ShuffleRoutine () {
-		yield return new WaitForSeconds (1f);
+        // Levanta todas las copas
+        foreach (Cup cup in cups)
+        {
+            cup.MoveUp();
+        }
 
-		foreach (Cup cup in cups) {
-			cup.MoveUp ();
-		}
+        yield return new WaitForSeconds(0.5f);
 
-		yield return new WaitForSeconds (0.5f);
+        // Escoge una copa al azar para esconder la bola
+        Cup targetCup = cups[Random.Range(0, cups.Length)];
+        targetCup.ball = ball;
+        ball.transform.position = new Vector3(
+            targetCup.transform.position.x,
+            ball.transform.position.y,
+            targetCup.transform.position.z
+        );
 
-		Cup targetCup = cups[Random.Range(0, cups.Length)];
-		targetCup.ball = ball;
-		ball.transform.position = new Vector3 (
-			targetCup.transform.position.x,
-			ball.transform.position.y,
-			targetCup.transform.position.z
-		);
+        yield return new WaitForSeconds(1.0f);
 
-		yield return new WaitForSeconds (1.0f);
+        // Baja todas las copas
+        foreach (Cup cup in cups)
+        {
+            cup.MoveDown();
+        }
 
-		foreach (Cup cup in cups) {
-			cup.MoveDown ();
-		}
+        yield return new WaitForSeconds(1.0f);
 
-		yield return new WaitForSeconds (1.0f);
+        // Mezcla las copas 5 veces
+        for (int i = 0; i < 5; i++)
+        {
+            Cup cup1 = cups[Random.Range(0, cups.Length)];
+            Cup cup2 = cup1;
 
-		for (int i = 0; i < 5; i++) {
-			Cup cup1 = cups[Random.Range(0, cups.Length)];
-			Cup cup2 = cup1;
+            while (cup2 == cup1)
+            {
+                cup2 = cups[Random.Range(0, cups.Length)];
+            }
 
-			while (cup2 == cup1) {
-				cup2 = cups[Random.Range(0, cups.Length)];
-			}
+            Vector3 cup1Pos = cup1.targetPosition;
+            cup1.targetPosition = cup2.targetPosition;
+            cup2.targetPosition = cup1Pos;
 
-			Vector3 cup1Position = cup1.targetPosition;
+            yield return new WaitForSeconds(0.75f);
+        }
 
-			cup1.targetPosition = cup2.targetPosition;
-			cup2.targetPosition = cup1Position;
-
-			yield return new WaitForSeconds (0.75f);
-		}
-
-		player.canPick = true;
-	}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+        // El jugador ahora puede elegir una copa
+        player.canPick = true;
+    }
 }
