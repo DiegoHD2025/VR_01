@@ -1,76 +1,80 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
-using TMPro;
+using System.Collections;
 
-public class GameController : MonoBehaviour
-{
-    public Player player;
-    public Ball ball;
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI highscoreText;
+public class GameController : MonoBehaviour {
 
-    public GameObject gameOverCanvas; // 🟢 Nuevo: Canvas con los botones de Game Over
+	public TextMesh infoText;
+	public GameObject ball;
+	public Player player;
+	public Cup[] cups;
 
-    private bool isGameOver = false;
+	private float resetTimer = 3f;
 
-    void Start()
-    {
-        // Mostrar el highscore almacenado
-        int highscore = PlayerPrefs.GetInt("scoreHigh", 0);
-        highscoreText.text = "Highscore: " + highscore;
-        Debug.Log("Highscore inicial: " + highscore);
+	// Use this for initialization
+	void Start () {
+		infoText.text = "Pick the correct cup!";
 
-        // Asegúrate de ocultar el canvas al principio
-        if (gameOverCanvas != null)
-        {
-            gameOverCanvas.SetActive(false);
-        }
-    }
+		StartCoroutine (ShuffleRoutine());
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (player.picked) {
+			if (player.won) {
+				infoText.text = "You win!";
+			} else {
+				infoText.text = "You lose :( try again!";
+			}
 
-    void Update()
-    {
-        // Solo verificar game over una vez
-        if (!isGameOver && ball.transform.position.z < player.transform.position.z)
-        {
-            isGameOver = true;
-            HandleGameOver();
-        }
+			resetTimer -= Time.deltaTime;
+			if (resetTimer <= 0f) {
+				SceneManager.LoadScene (SceneManager.GetActiveScene().name);
+			}
+		}
+	}
 
-        if (!isGameOver)
-        {
-            scoreText.text = "Score: " + ball.score;
-        }
-    }
+	private IEnumerator ShuffleRoutine () {
+		yield return new WaitForSeconds (1f);
 
-    void HandleGameOver()
-    {
-        scoreText.text = "Game over!\nYour final score: " + ball.score;
+		foreach (Cup cup in cups) {
+			cup.MoveUp ();
+		}
 
-        // Guardar el highscore si es necesario
-        int highscore = PlayerPrefs.GetInt("scoreHigh", 0);
-        if (ball.score > highscore)
-        {
-            PlayerPrefs.SetInt("scoreHigh", ball.score);
-            PlayerPrefs.Save();
-            highscoreText.text = "Highscore: " + ball.score;
-        }
+		yield return new WaitForSeconds (0.5f);
 
-        // Mostrar el menú de Game Over
-        if (gameOverCanvas != null)
-        {
-            gameOverCanvas.SetActive(true);
-        }
-    }
+		Cup targetCup = cups[Random.Range(0, cups.Length)];
+		targetCup.ball = ball;
+		ball.transform.position = new Vector3 (
+			targetCup.transform.position.x,
+			ball.transform.position.y,
+			targetCup.transform.position.z
+		);
 
-    // Estas funciones las llamas desde los botones con Gaze
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+		yield return new WaitForSeconds (1.0f);
 
-    public void ReturnToMenu()
-    {
-        SceneManager.LoadScene("Practica03"); // Cambia "MainMenu" al nombre real de tu escena del menú
-    }
+		foreach (Cup cup in cups) {
+			cup.MoveDown ();
+		}
+
+		yield return new WaitForSeconds (1.0f);
+
+		for (int i = 0; i < 5; i++) {
+			Cup cup1 = cups[Random.Range(0, cups.Length)];
+			Cup cup2 = cup1;
+
+			while (cup2 == cup1) {
+				cup2 = cups[Random.Range(0, cups.Length)];
+			}
+
+			Vector3 cup1Position = cup1.targetPosition;
+
+			cup1.targetPosition = cup2.targetPosition;
+			cup2.targetPosition = cup1Position;
+
+			yield return new WaitForSeconds (0.75f);
+		}
+
+		player.canPick = true;
+	}
 }
