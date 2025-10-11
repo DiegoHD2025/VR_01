@@ -1490,7 +1490,7 @@ MonoBehaviour:
   menu: {fileID: 317408958}
   puntaje: {fileID: 1918555418}
   highscoreText: {fileID: 151986792}
-  enemySpawningCooldown: 5
+  enemySpawningCooldown: 3
   enemySpawningDistance: 7
   shootingCooldown: 0.5
 --- !u!4 &1151613910

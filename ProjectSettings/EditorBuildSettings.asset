@@ -17,5 +17,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Practica07.unity
     guid: b382bd27f193f734f8989487d43e6412
+  - enabled: 1
+    path: Assets/Scenes/Practica08.unity
+    guid: bb23c0315e3e7ec41983611bd73ba70e
+  - enabled: 1
+    path: Assets/Scenes/Practica05.unity
+    guid: 41bce39875bfb80488ca7c83a778d835
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4559d9f2fcf42ec4ba046c27e46c0bb0, type: 2}
